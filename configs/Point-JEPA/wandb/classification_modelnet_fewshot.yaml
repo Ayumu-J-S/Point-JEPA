@@ -1,0 +1,7 @@
+# pytorch_lightning==1.7.2
+trainer:
+  logger:
+  - class_path: pytorch_lightning.loggers.WandbLogger
+    init_args:
+      project: Point-JEPA-Classification-ModelNet-Fewshot
+      log_model: false

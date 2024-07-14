@@ -1,0 +1,31 @@
+# pytorch_lightning==1.7.2
+trainer:
+  logger:
+  - class_path: pytorch_lightning.loggers.WandbLogger
+    init_args:
+      project: Point-JEPA-Pretraining-ShapeNet
+      log_model: false # False as checkpoints will be logged in the callback
+  callbacks:
+    # - class_path: pytorch_lightning.callbacks.ModelCheckpoint
+    #   init_args:
+    #     monitor: val_loss
+    #     mode: min
+    #     # dirpath: specify dirpath to save checkpoint
+    #     filename: 'checkpoint-{epoch}-{val_loss:.2f}'
+    # - class_path: pytorch_lightning.callbacks.ModelCheckpoint
+    #   init_args:
+    #     monitor: svm_val_acc_modelnet40
+    #     mode: max
+    #     filename: "{epoch}-{step}-{svm_val_acc_modelnet40:.4f}"
+    # - class_path: pytorch_lightning.callbacks.ModelCheckpoint
+    #   init_args:
+    #     monitor: svm_val_acc_scanobjectnn
+    #     mode: max
+    #     filename: "{epoch}-{step}-{svm_val_acc_scanobjectnn:.4f}"
+    # - class_path: pytorch_lightning.callbacks.ModelCheckpoint
+    #   init_args:
+    #     monitor: epoch
+    #     mode: max
+    #     filename: "{epoch}-{step}-{epoch:.4f}"
+    # # For logging to wandb
+    # - class_path: "pointjepa.callbacks.wandb_checkpoint_logger.WandbModelCheckpointLogger"

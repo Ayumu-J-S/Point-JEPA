@@ -1,0 +1,14 @@
+# pytorch_lightning==1.7.2
+trainer:
+  logger:
+  - class_path: pytorch_lightning.loggers.WandbLogger
+    init_args:
+      project: Point-JEPA-Part-Segmentation-ShapeNetPart
+      log_model: false
+  # callbacks:
+  #   - class_path: pytorch_lightning.callbacks.ModelCheckpoint
+  #     init_args:
+  #       monitor: val_ins_miou
+  #       mode: max
+  #       filename: "{epoch}-{step}-{val_ins_miou:.4f}"
+  #   - class_path: "pointjepa.callbacks.wandb_checkpoint_logger.WandbModelCheckpointLogger"
