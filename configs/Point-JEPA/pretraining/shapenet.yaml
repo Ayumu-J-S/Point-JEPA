@@ -83,6 +83,6 @@ data:
   init_args:
     # data_dir: ./data/ShapeNet55
     data_dir: ./data/ShapeNet55
-    batch_size: 256 # needs around 13GB of GPU RAM with fp16
+    batch_size: 512
     num_workers: 16
     in_memory: true

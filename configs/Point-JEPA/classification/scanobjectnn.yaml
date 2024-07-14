@@ -50,7 +50,7 @@ model:
 data:
   class_path: pointjepa.datasets.ScanObjectNNDataModule
   init_args:
-    data_dir: ../../../mnt/disk2/Data/misc_ayumus/ScanObjectNN
+    data_dir: ./data/ScanObjectNN
     split: main_split
     perturbed: true
     batch_size: 32

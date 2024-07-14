@@ -3,12 +3,12 @@ trainer:
   logger:
   - class_path: pytorch_lightning.loggers.WandbLogger
     init_args:
-      project: Point-JEPA-Classification-ScanObjectNN-OBJ-BG
+      project: Point-JEPA-Classification-ScanObjectNN-OBJ-BG-to-get-the-weight
       log_model: false
-  # callbacks:
-  #   - class_path: pytorch_lightning.callbacks.ModelCheckpoint
-  #     init_args:
-  #       monitor: val_acc
-  #       mode: max
-  #       filename: "{epoch}-{step}-{val_acc:.4f}"
-  #   - class_path: "pointjepa.callbacks.wandb_checkpoint_logger.WandbModelCheckpointLogger"
+  callbacks:
+    - class_path: pytorch_lightning.callbacks.ModelCheckpoint
+      init_args:
+        monitor: val_acc
+        mode: max
+        filename: "{epoch}-{step}-{val_acc:.4f}"
+    - class_path: "pointjepa.callbacks.wandb_checkpoint_logger.WandbModelCheckpointLogger"
