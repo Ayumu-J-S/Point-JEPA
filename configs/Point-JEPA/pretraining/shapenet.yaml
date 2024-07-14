@@ -1,0 +1,88 @@
+# pytorch_lightning==1.7.2
+seed_everything: 1
+trainer:
+  sync_batchnorm: true
+  # gradient_clip_val: null
+  # gradient_clip_algorithm: null
+  max_epochs: 500
+  # log_every_n_steps: 50
+  precision: 16
+model:
+  tokenizer_num_groups: 64
+  tokenizer_group_size: 32
+  tokenizer_group_radius: null
+  encoder_dim: 384
+  encoder_depth: 12
+  encoder_heads: 6
+  encoder_dropout: 0.1
+  encoder_attention_dropout: 0.05
+  encoder_drop_path_rate: 0.25
+  encoder_add_pos_at_every_layer: true
+  predictor_embed_dim: 192
+  predictor_depth: 6
+  predictor_heads: 6
+  predictor_mlp_ratio: 4.0
+  predictor_drop_out: 0.1
+  predictor_attention_dropout: 0.05
+  predictor_drop_path_rate: 0.25
+  predictor_add_target_pos: true
+  token_seq_method: iterative_nearest_min_start # iterative_nearest, iterative_nearest_min_start
+  target_sample_method: contiguous # One of random or contiguous
+  num_targets_per_sample: 4
+  target_sample_ratio: [0.15, 0.2]
+  context_sample_method: contiguous  # One of "contiguous", "random", "rest"
+  context_sample_ratio: [0.4, 0.75]
+  target_layers: [11]
+  target_layer_part: final
+  target_layer_norm: layer
+  target_norm: null # Null bc there is only one target layer
+  ema_tau_min: 0.9995
+  ema_tau_max: 0.99999
+  ema_tau_epochs: 500
+  loss: smooth_l1
+  learning_rate: 1e-3
+  optimizer_adamw_weight_decay: 0.05
+  lr_scheduler_linear_warmup_epochs: 30 # 30
+  lr_scheduler_linear_warmup_start_lr: 1e-5
+  lr_scheduler_cosine_eta_min: 1e-6 # 1e-6
+  train_transformations:
+  - "subsample"
+  - "scale"
+  - "center"
+  - "unit_sphere"
+  - "rotate"
+  val_transformations:
+  - "subsample"
+  - "center"
+  - "unit_sphere"
+  transformation_subsample_points: 1024
+  transformation_scale_min: 0.8
+  transformation_scale_max: 1.2
+  transformation_scale_symmetries: [1, 0, 1]
+  transformation_rotate_dims: [1]
+  transformation_rotate_degs: null
+  transformation_translate: 0.2
+  transformation_height_normalize_dim: 1
+  svm_validation:
+    modelnet40:
+      class_path: pointjepa.datasets.ModelNet40Ply2048DataModule
+      init_args:
+        data_dir: ./data/modelnet40_ply_hdf5_2048
+        batch_size: 256
+        drop_last: false
+    scanobjectnn:
+      class_path: pointjepa.datasets.ScanObjectNNDataModule
+      init_args:
+        data_dir: ./data/ScanObjectNN
+        split: main_split
+        perturbed: false
+        batch_size: 256
+        drop_last: false
+data:
+  class_path: pointjepa.datasets.ShapeNet55DataModule
+  init_args:
+    # data_dir: ./data/ShapeNet55
+    data_dir: ./data/ShapeNet55
+    batch_size: 256 # needs around 13GB of GPU RAM with fp16
+    num_workers: 16
+    in_memory: true

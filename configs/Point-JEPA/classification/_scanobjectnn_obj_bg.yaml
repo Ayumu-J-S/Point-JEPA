@@ -1,0 +1,11 @@
+trainer:
+  max_epochs: 300
+model:
+  encoder_unfreeze_epoch: 200
+data:
+  class_path: pointjepa.datasets.ScanObjectNNDataModule
+  init_args:
+    data_dir: ./data/ScanObjectNN
+    split: main_split
+    perturbed: false
+    batch_size: 32

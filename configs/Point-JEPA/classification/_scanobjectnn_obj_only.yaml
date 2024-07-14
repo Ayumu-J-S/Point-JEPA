@@ -1,0 +1,9 @@
+# model:
+#   encoder_unfreeze_epoch: 180
+data:
+  class_path: pointjepa.datasets.ScanObjectNNDataModule
+  init_args:
+    data_dir: ./data/ScanObjectNN
+    split: main_split_nobg
+    perturbed: false
+    batch_size: 32
