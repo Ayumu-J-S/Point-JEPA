@@ -14,8 +14,8 @@ fi
 for i in `seq 1 10`
 do
     python -m pointjepa.tasks.part_segmentation fit \
-    --config configs/segmentation/shapenetpart.yaml \
-    --config configs/wandb/pointjepa/part_segmentation_shapenet_part.yaml  \
+    --config configs/Point-JEPA/segmentation/shapenetpart.yaml \
+    --config configs/Point-JEPA/wandb/part_segmentation_shapenet_part.yaml  \
     --model.pretrained_ckpt_path $weights_path    \
     --trainer.devices="[$gpu_id]" --seed_everything $i
 done

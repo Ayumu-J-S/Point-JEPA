@@ -14,8 +14,8 @@ fi
 for i in `seq 1 10`
 do
     python -m pointjepa.tasks.classification fit \
-    --config configs/classification/modelnet40.yaml \
-    --config configs/wandb/pointjepa/classification_modelnet40.yaml  \
+    --config configs/Point-JEPA/classification/modelnet40.yaml \
+    --config configs/Point-JEPA/wandb/classification_modelnet40.yaml  \
     --model.pretrained_ckpt_path $weights_path    \
     --trainer.devices="[$gpu_id]" --seed_everything $i
 done

@@ -12,8 +12,8 @@ fi
 for i in `seq 1 10`
 do
     python -m pointjepa.eval.voting \
-    --config "configs/classification/modelnet40.yaml" \
-    --config "configs/wandb/pointjepa/voting_modelnet40.yaml" \
+    --config "configs/Point-JEPA/classification/modelnet40.yaml" \
+    --config "configs/Point-JEPA/wandb/voting_modelnet40.yaml" \
     --finetuned_ckpt_path $weights_path \
     --seed_everything $i 
 done

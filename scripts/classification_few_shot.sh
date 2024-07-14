@@ -15,8 +15,8 @@ fi
 for i in `seq 0 9`
 do
     python -m pointjepa.tasks.classification fit \
-    --config configs/classification/modelnet_fewshot.yaml \
-    --config configs/wandb/pointjepa/classification_modelnet_fewshot.yaml  \
+    --config configs/Point-JEPA/classification/modelnet_fewshot.yaml \
+    --config configs/Point-JEPA/wandb/classification_modelnet_fewshot.yaml  \
     --model.pretrained_ckpt_path $weights_path    \
     --data.way $way --data.shot $shot --data.fold $i
 done
