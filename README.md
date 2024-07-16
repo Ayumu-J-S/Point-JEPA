@@ -2,9 +2,6 @@
 
 Joint-Embedding Predictive Architecture on Point Clouds
 
-
-[[`Paper`](https://arxiv.org/abs/2404.16432)] [[`BibTeX`](#citing-point-jepa)]
-
 ![architecture](misc/Arch.png)
 
 ## Installation
@@ -66,19 +63,3 @@ We used a mixture of  two environments (compute canada and the other), [Narval](
 - CUDA 11.8
 - on RTX 5500  
 
-
-
-## Citing Point-JEPA
-
-If you use Point-JEPA in your research, please use the following BibTeX entry.
-
-```
-@misc{saito2024pointjepa,
-      title={Point-JEPA: A Joint Embedding Predictive Architecture for Self-Supervised Learning on Point Cloud}, 
-      author={Ayumu Saito and Jiju Poovvancheri},
-      year={2024},
-      eprint={2404.16432},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}
-```
