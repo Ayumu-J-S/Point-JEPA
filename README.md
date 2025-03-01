@@ -1,6 +1,11 @@
 # Point-JEPA
 
-Joint-Embedding Predictive Architecture on Point Clouds
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/point-jepa-a-joint-embedding-predictive/few-shot-3d-point-cloud-classification-on-3)](https://paperswithcode.com/sota/few-shot-3d-point-cloud-classification-on-3?p=point-jepa-a-joint-embedding-predictive) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/point-jepa-a-joint-embedding-predictive/few-shot-3d-point-cloud-classification-on-4)](https://paperswithcode.com/sota/few-shot-3d-point-cloud-classification-on-4?p=point-jepa-a-joint-embedding-predictive) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/point-jepa-a-joint-embedding-predictive/few-shot-3d-point-cloud-classification-on-2)](https://paperswithcode.com/sota/few-shot-3d-point-cloud-classification-on-2?p=point-jepa-a-joint-embedding-predictive) 
+
+We propose a joint embedding predictive architecture (JEPA) for point cloud self-supervised learning. 
+Our method efficiently computes and utilizes the proximity of point cloud patch embeddings based on their indices during target and context selection. 
+The sequencer allows shared computations of the patch embeddings' proximity between context and target selection, further improving efficiency. 
+Please refer to the [paper](https://arxiv.org/abs/2412.05555) for more details.
 
 ![architecture](misc/Arch.png)
 
@@ -63,3 +68,19 @@ We used a mixture of  two environments (compute canada and the other), [Narval](
 - CUDA 11.8
 - on RTX 5500  
 
+## Acknowledgements
+
+This codebase is built upon [Point2Vec](https://github.com/kabouzeid/point2vec) and draws inspiration from [PointGPT](https://github.com/CVMI-Lab/PointGPT)'s efficient point ordering implementation. We thank the authors of both repositories for their contributions.
+
+## Citation
+
+You can cite our paper as follows:
+
+```bibtex
+@inproceedings{pointjepa2025,
+    title={Point-JEPA: Joint Embedding Predictive Architecture for 3D Point Cloud Self-supervised Learning},
+    author={Saito, Ayumu and Kudeshia, Prachi and Poovvancheri, Jiju},
+    booktitle={IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+    year={2025}
+}
+```
