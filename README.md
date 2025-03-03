@@ -7,7 +7,7 @@
 We propose a joint embedding predictive architecture (JEPA) for point cloud self-supervised learning. 
 Our method efficiently computes and utilizes the proximity of point cloud patch embeddings based on their indices during target and context selection. 
 The sequencer allows shared computations of the patch embeddings' proximity between context and target selection, further improving efficiency. 
-Please refer to the [paper](https://arxiv.org/abs/2412.05555) for more details.
+Please refer to the [paper](https://arxiv.org/abs/2404.16432) for more details.
 
 ![architecture](misc/Arch.png)
 
